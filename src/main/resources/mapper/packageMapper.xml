@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tws.repository.PackageMapper">
+	<select id="selectAll" resultType="tws.entity.Package">
+		select * from `package`;
+	</select>
+
+	<insert id="insert" parameterType="tws.entity.Package">
+		insert into `package`
+		values(#{package.id},#{package.receiver},#{package.telPhone},#{package.weight},null,null);
+	</insert>
+	<update id="update">
+		update `package` set fetchTime = #{package.fetchTime},status='已预约'
+		where id =#{id}
+	</update>
+</mapper>
